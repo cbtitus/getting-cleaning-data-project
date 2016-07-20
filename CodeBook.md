@@ -54,23 +54,23 @@ Detail operations of the R-script
 1. Load the dplyr library
 2. Read the contents of "features.txt" from the root of the working directory. This will be used to create the column names in the dataframe
 3. Do some text-cleanup of the names from features.txt, for readability when outputting the tidy data set
-4. Read the contents of "activity_labels.txt" from the root of the working directory. The ID and label we find here will eventually be merged into our data set
+4. Read the contents of "activity_labels.txt" from the root of the working directory. The ID and label we find here will eventually be merged into our data set  
 ### Load the training data
 1. Read the contents of "train/X_train.txt", and name the columns in the dataframe using the information from "features.txt," above
 2. Read the contents of "train/y_train.txt" which are the activity IDs for each observation
 3. Read the contents of "train/subject_train.txt" which are the subject IDs for each observation
-4. Column-bind these three pieces together using cbind()
+4. Column-bind these three pieces together using cbind()  
 ### Load the test data
 1. Read the contents of "test/X_test.txt", and name the columns in the dataframe using the information from "features.txt," above
 2. Read the contents of "test/y_test.txt" which are the activity IDs for each observation
 3. Read the contents of "test/subject_test.txt" which are the subject IDs for each observation
-4. Column-bind these three pieces together using cbind()
+4. Column-bind these three pieces together using cbind()  
 ### Create the single dataframe
 1. Row bind the 2 dataframes together using rbind(). Now we have one dataframe with all of the observations (over 10,000)
-2. Merge the activity labels with the single dataframe, matching the activity IDs from "activity_labels.txt" to the IDs in the dataframe
+2. Merge the activity labels with the single dataframe, matching the activity IDs from "activity_labels.txt" to the IDs in the dataframe  
 ### Select the measurements of interest
 1. Create a dataframe table (requires dplyr library) from the dataframe
-2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. **(Reviewers please note my interpretation of the selection instructions, above.)** 
+2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. **(Reviewers please note my interpretation of the selection instructions, above.)**  
 
 
 
