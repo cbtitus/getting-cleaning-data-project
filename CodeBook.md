@@ -75,7 +75,8 @@ Detailed operation of run_analysis()
 ### Select the measurements of interest  
 1. Create a dataframe table (requires dplyr library) from the dataframe
 2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. **(Reviewers please note my interpretation of the selection instructions, above.)**  
-3. We now have a dataframe that:   
+3. We now have a dataframe that:  
+
 * combines the test and training data
 * has appropriately labeled columns
 * includes subject id and descriptive activity names for each observation
