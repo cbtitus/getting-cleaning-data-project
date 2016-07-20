@@ -48,8 +48,8 @@ Overview
 --------
 When the function run_analysis() is called, the raw data will be read from the working directory and subfolders and operated upon (described in detail below). A tidy data set will be output back to the working directory as a file named "tidydata.txt", using the write.table() function. There are no parameters required for the script to run properly. Upon completion of the script, tidydata.txt should be able to be read back into R using read.table("tidydata.txt" header=TRUE)
 
-Detail operations of the R-script
----------------------------------
+Detailed operation of run_analysis()
+------------------------------------
 ### Prepare column names and activity labels  
 1. Load the dplyr library
 2. Read the contents of "features.txt" from the root of the working directory. This will be used to create the column names in the dataframe
@@ -75,6 +75,13 @@ Detail operations of the R-script
 ### Select the measurements of interest  
 1. Create a dataframe table (requires dplyr library) from the dataframe
 2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. **(Reviewers please note my interpretation of the selection instructions, above.)**  
+3. We now have a dataframe that:   
+* combines the test and training data
+* has appropriately labeled columns
+* includes subject id and descriptive activity names for each observation
+* includes only the measurements of interest  
+
+### Create the tidy data set for the assignment
 
 
 
