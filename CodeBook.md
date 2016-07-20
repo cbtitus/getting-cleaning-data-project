@@ -11,37 +11,37 @@ Within the zip file, the README.txt, feature_info.txt, and features.txt document
 =============================================
 The variables in the tidy data set represent average values of a subset of the raw measurement vector provided in the download. Specifically, there are 66 variables derived from the raw measurements, and there are 2 "ID" variables that correspond to the Subject and Activity of each observation. The 66 averaged variables were selected and derived in the following way:
 
-a. The training and test data sets were combined to form a single set of all the available data (561 variables) 
-b. Only the variables corresponding to mean() and std() estimates were selected from this set (66 variables) 
-c. The data set was summarized by subject and activity, and the variables were averaged by this summary 
-d. The variable names were cleaned up to be more readable, for example: 
-	replacing "Gyro" with "Gyroscope" 
-	replacing "Acc" with "Accelerometer" 
-	replacing leading "t" with "Time" 
-	replacing leading "f" with "Frequency" 
-	etc.
+1. The training and test data sets were combined to form a single set of all the available data (561 variables) 
+2. Only the variables corresponding to mean() and std() estimates were selected from this set (66 variables) 
+3. The data set was summarized by subject and activity, and the variables were averaged by this summary 
+4. The variable names were cleaned up to be more readable, for example: 
+	* replacing "Gyro" with "Gyroscope" 
+	* replacing "Acc" with "Accelerometer" 
+	* replacing leading "t" with "Time" 
+	* replacing leading "f" with "Frequency" 
+	* etc.
    Also, in the final tidy data set, the text "_mean" is appended to every variable to indicate that it is an average that has been aggregated over many activities
 
 **REVIEWERS, PLEASE NOTE:** in my interpretation of the instructions, I decided that only variables including mean() and std() would be selected. For example, the following were selected:
 
-tBodyAcc-mean()-X 
-tBodyAcc-std()-Y
+tBodyAcc-mean()-X  
+tBodyAcc-std()-Y  
 
 but the following were **NOT** selected:
 
-fBodyAccMag-meanFreq() 
+fBodyAccMag-meanFreq()   
 angle(X,gravityMean)
 
 even though the word "Mean" appears in the variable description.
 
 3. STEPS TO REPRODUCE THE TIDY DATA SET
 =======================================
-The tidy data set can be constructed from the raw data using the R-script run_analysis.R, which was created for this assignment.
+The tidy data set can be constructed from the raw data using the R-script run_analysis.R, which was created for this assignment.  
 Assumptions and requirements for run_analysis():
 ------------------------------------------------
-a. The dplyr library is required for the function run_analysis()
-b. The raw dataset must be downloaded and unzipped, so that the folder "UCI HAR Dataset" is available
-c. The working directory should be set to the folder "UCI HAR Dataset"
+1. The dplyr library is required for the function run_analysis()
+2. The raw dataset must be downloaded and unzipped, so that the folder "UCI HAR Dataset" is available
+3. The working directory should be set to the folder "UCI HAR Dataset"
 
 Overview
 --------
@@ -138,51 +138,51 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
+tBodyAcc-XYZ  
+tGravityAcc-XYZ  
+tBodyAccJerk-XYZ  
+tBodyGyro-XYZ  
+tBodyGyroJerk-XYZ  
+tBodyAccMag  
+tGravityAccMag  
+tBodyAccJerkMag  
+tBodyGyroMag  
+tBodyGyroJerkMag  
+fBodyAcc-XYZ  
+fBodyAccJerk-XYZ  
+fBodyGyro-XYZ  
+fBodyAccMag  
+fBodyAccJerkMag  
+fBodyGyroMag  
+fBodyGyroJerkMag  
 
 The set of variables that were estimated from these signals are: 
 
-mean(): Mean value
-std(): Standard deviation
-mad(): Median absolute deviation 
-max(): Largest value in array
-min(): Smallest value in array
-sma(): Signal magnitude area
-energy(): Energy measure. Sum of the squares divided by the number of values. 
-iqr(): Interquartile range 
-entropy(): Signal entropy
-arCoeff(): Autorregresion coefficients with Burg order equal to 4
-correlation(): correlation coefficient between two signals
-maxInds(): index of the frequency component with largest magnitude
-meanFreq(): Weighted average of the frequency components to obtain a mean frequency
-skewness(): skewness of the frequency domain signal 
-kurtosis(): kurtosis of the frequency domain signal 
-bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
-angle(): Angle between to vectors.
+mean(): Mean value  
+std(): Standard deviation  
+mad(): Median absolute deviation   
+max(): Largest value in array  
+min(): Smallest value in array  
+sma(): Signal magnitude area  
+energy(): Energy measure. Sum of the squares divided by the number of values.   
+iqr(): Interquartile range   
+entropy(): Signal entropy  
+arCoeff(): Autorregresion coefficients with Burg order equal to 4  
+correlation(): correlation coefficient between two signals  
+maxInds(): index of the frequency component with largest magnitude  
+meanFreq(): Weighted average of the frequency components to obtain a mean frequency  
+skewness(): skewness of the frequency domain signal   
+kurtosis(): kurtosis of the frequency domain signal   
+bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.  
+angle(): Angle between to vectors.  
 
 Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
-gravityMean
-tBodyAccMean
-tBodyAccJerkMean
-tBodyGyroMean
-tBodyGyroJerkMean
+gravityMean  
+tBodyAccMean  
+tBodyAccJerkMean  
+tBodyGyroMean  
+tBodyGyroJerkMean  
 
 The complete list of variables of each feature vector is available in 'features.txt' (and listed below):
 
