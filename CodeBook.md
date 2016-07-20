@@ -5,7 +5,7 @@ CODE BOOK
 =============================
 The raw data for this exercise was obtained by downloading the zip file at this location: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Within the zip file, the README.txt, feature_info.txt, and features.txt documents give important details about the raw data. These are included below, as APPENDIX 1: ORIGINAL EXPERIMENT AND DOCUMENTATION
+Within the zip file, the README.txt, feature_info.txt, and features.txt documents give important details about the raw data. These are included below, as APPENDIX: Original experiment and documentation
 
 2. Overview of variables in the tidy data set
 =============================================
@@ -20,7 +20,6 @@ The variables in the tidy data set represent average values of a subset of the r
 	* replacing leading "t" with "Time" 
 	* replacing leading "f" with "Frequency" 
 	* etc.  
-   Also, in the final tidy data set, the text "_mean" is appended to every variable to indicate that it is an average that has been aggregated over many activities
 
 **REVIEWERS, PLEASE NOTE: in my interpretation of the instructions, I decided that only variables including mean() and std() would be selected.**  
 For example, the following were selected:
@@ -82,11 +81,88 @@ Detailed operation of run_analysis()
     * includes only the measurements of interest  
 
 ### Create the tidy data set requested by the assignment
+1. Use the group_by() function to group the dataframe table by subject_id and activity  
+    * group_by(subject_id, activity)
+2. Use chaining and the summarize_each() function to take the mean of every variable, summarizing by the groups  
+    * summarize_each(funs(mean))
+3. We now have a dataframe table that gives the average of each measurement of interest, for each subject_id and activity
+4. Use write.table() to write the tidy data set to the working directory
+
+Variable names in the final tidy data set
+-----------------------------------
+1. subject_id
+2. activity
+3. TimeBodyAccelerometer.mean_value.X
+4. TimeBodyAccelerometer.mean_value.Y
+5. TimeBodyAccelerometer.mean_value.Z
+6. TimeBodyAccelerometer.std_dev.X
+7. TimeBodyAccelerometer.std_dev.Y
+8. TimeBodyAccelerometer.std_dev.Z
+9. TimeGravityAccelerometer.mean_value.X
+10. TimeGravityAccelerometer.mean_value.Y
+11. TimeGravityAccelerometer.mean_value.Z
+12. TimeGravityAccelerometer.std_dev.X
+13. TimeGravityAccelerometer.std_dev.Y
+14. TimeGravityAccelerometer.std_dev.Z
+15. TimeBodyAccelerometerJerk.mean_value.X
+16. TimeBodyAccelerometerJerk.mean_value.Y
+17. TimeBodyAccelerometerJerk.mean_value.Z
+18. TimeBodyAccelerometerJerk.std_dev.X
+19. TimeBodyAccelerometerJerk.std_dev.Y
+20. TimeBodyAccelerometerJerk.std_dev.Z
+21. TimeBodyGyroscope.mean_value.X
+22. TimeBodyGyroscope.mean_value.Y
+23. TimeBodyGyroscope.mean_value.Z
+24. TimeBodyGyroscope.std_dev.X
+25. TimeBodyGyroscope.std_dev.Y
+26. TimeBodyGyroscope.std_dev.Z
+27. TimeBodyGyroscopeJerk.mean_value.X
+28. TimeBodyGyroscopeJerk.mean_value.Y
+29. TimeBodyGyroscopeJerk.mean_value.Z
+30. TimeBodyGyroscopeJerk.std_dev.X
+31. TimeBodyGyroscopeJerk.std_dev.Y
+32. TimeBodyGyroscopeJerk.std_dev.Z
+33. TimeBodyAccelerometerMag.mean_value
+34. TimeBodyAccelerometerMag.std_dev
+35. TimeGravityAccelerometerMag.mean_value
+36. TimeGravityAccelerometerMag.std_dev
+37. TimeBodyAccelerometerJerkMag.mean_value
+38. TimeBodyAccelerometerJerkMag.std_dev
+39. TimeBodyGyroscopeMag.mean_value
+40. TimeBodyGyroscopeMag.std_dev
+41. TimeBodyGyroscopeJerkMag.mean_value
+42. TimeBodyGyroscopeJerkMag.std_dev
+43. FreqBodyAccelerometer.mean_value.X
+44. FreqBodyAccelerometer.mean_value.Y
+45. FreqBodyAccelerometer.mean_value.Z
+46. FreqBodyAccelerometer.std_dev.X
+47. FreqBodyAccelerometer.std_dev.Y
+48. FreqBodyAccelerometer.std_dev.Z
+49. FreqBodyAccelerometerJerk.mean_value.X
+50. FreqBodyAccelerometerJerk.mean_value.Y
+51. FreqBodyAccelerometerJerk.mean_value.Z
+52. FreqBodyAccelerometerJerk.std_dev.X
+53. FreqBodyAccelerometerJerk.std_dev.Y
+54. FreqBodyAccelerometerJerk.std_dev.Z
+55. FreqBodyGyroscope.mean_value.X
+56. FreqBodyGyroscope.mean_value.Y
+57. FreqBodyGyroscope.mean_value.Z
+58. FreqBodyGyroscope.std_dev.X
+59. FreqBodyGyroscope.std_dev.Y
+60. FreqBodyGyroscope.std_dev.Z
+61. FreqBodyAccelerometerMag.mean_value
+62. FreqBodyAccelerometerMag.std_dev
+63. FreqBodyBodyAccelerometerJerkMag.mean_value
+64. FreqBodyBodyAccelerometerJerkMag.std_dev
+65. FreqBodyBodyGyroscopeMag.mean_value
+66. FreqBodyBodyGyroscopeMag.std_dev
+67. FreqBodyBodyGyroscopeJerkMag.mean_value
+68. FreqBodyBodyGyroscopeJerkMag.std_dev
 
 
 
-APPENDIX 1: ORIGINAL EXPERIMENT AND DOCUMENTATION
-=================================================
+APPENDIX: Original experiment and documentation
+===============================================
 
 ==================================================================
 Human Activity Recognition Using Smartphones Dataset
