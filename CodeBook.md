@@ -11,25 +11,25 @@ Within the zip file, the README.txt, feature_info.txt, and features.txt document
 =============================================
 The variables in the tidy data set represent average values of a subset of the raw measurement vector provided in the download. Specifically, there are 66 variables derived from the raw measurements, and there are 2 "ID" variables that correspond to the Subject and Activity of each observation. The 66 averaged variables were selected and derived in the following way:
 
-a. The training and test data sets were combined to form a single set of all the available data (561 variables)
-b. Only the variables corresponding to mean() and std() estimates were selected from this set (66 variables)
-c. The data set was summarized by subject and activity, and the variables were averaged by this summary
-d. The variable names were cleaned up to be more readable, for example:
-	replacing "Gyro" with "Gyroscope"
-	replacing "Acc" with "Accelerometer"
-	replacing leading "t" with "Time"
-	replacing leading "f" with "Frequency"
+a. The training and test data sets were combined to form a single set of all the available data (561 variables) 
+b. Only the variables corresponding to mean() and std() estimates were selected from this set (66 variables) 
+c. The data set was summarized by subject and activity, and the variables were averaged by this summary 
+d. The variable names were cleaned up to be more readable, for example: 
+	replacing "Gyro" with "Gyroscope" 
+	replacing "Acc" with "Accelerometer" 
+	replacing leading "t" with "Time" 
+	replacing leading "f" with "Frequency" 
 	etc.
    Also, in the final tidy data set, the text "_mean" is appended to every variable to indicate that it is an average that has been aggregated over many activities
 
 **REVIEWERS, PLEASE NOTE:** in my interpretation of the instructions, I decided that only variables including mean() and std() would be selected. For example, the following were selected:
 
-tBodyAcc-mean()-X
+tBodyAcc-mean()-X 
 tBodyAcc-std()-Y
 
 but the following were **NOT** selected:
 
-fBodyAccMag-meanFreq()
+fBodyAccMag-meanFreq() 
 angle(X,gravityMean)
 
 even though the word "Mean" appears in the variable description.
