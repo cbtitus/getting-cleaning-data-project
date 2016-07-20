@@ -22,7 +22,8 @@ The variables in the tidy data set represent average values of a subset of the r
 	* etc.  
    Also, in the final tidy data set, the text "_mean" is appended to every variable to indicate that it is an average that has been aggregated over many activities
 
-**REVIEWERS, PLEASE NOTE: in my interpretation of the instructions, I decided that only variables including mean() and std() would be selected.** For example, the following were selected:
+**REVIEWERS, PLEASE NOTE: in my interpretation of the instructions, I decided that only variables including mean() and std() would be selected.**  
+For example, the following were selected:
 
 tBodyAcc-mean()-X  
 tBodyAcc-std()-Y  
@@ -45,10 +46,32 @@ Assumptions and requirements for run_analysis():
 
 Overview
 --------
-When the function run_analysis() is called, the raw data will be read from the working directory and subfolders, operated upon (described in detail below), and then the tidy data set will be output back to the working directory as a file named "tidydata.txt". There are no parameters required for the script to run properly. Upon completion of the script, tidydata.txt should be able to be read back into R using read.table("tidydata.txt" header=TRUE)
+When the function run_analysis() is called, the raw data will be read from the working directory and subfolders and operated upon (described in detail below). A tidy data set will be output back to the working directory as a file named "tidydata.txt", using the write.table() function. There are no parameters required for the script to run properly. Upon completion of the script, tidydata.txt should be able to be read back into R using read.table("tidydata.txt" header=TRUE)
 
-Details
--------
+Detail operations of the R-script
+---------------------------------
+### Prepare column names and activity labels
+1. Load the dplyr library
+2. Read the contents of "features.txt" from the root of the working directory. This will be used to create the column names in the dataframe
+3. Do some text-cleanup of the names from features.txt, for readability when outputting the tidy data set
+4. Read the contents of "activity_labels.txt" from the root of the working directory. The ID and label we find here will eventually be merged into our data set
+### Load the training data
+1. Read the contents of "train/X_train.txt", and name the columns in the dataframe using the information from "features.txt," above
+2. Read the contents of "train/y_train.txt" which are the activity IDs for each observation
+3. Read the contents of "train/subject_train.txt" which are the subject IDs for each observation
+4. Column-bind these three pieces together using cbind()
+### Load the test data
+1. Read the contents of "test/X_test.txt", and name the columns in the dataframe using the information from "features.txt," above
+2. Read the contents of "test/y_test.txt" which are the activity IDs for each observation
+3. Read the contents of "test/subject_test.txt" which are the subject IDs for each observation
+4. Column-bind these three pieces together using cbind()
+### Create the single dataframe
+1. Row bind the 2 dataframes together using rbind(). Now we have one dataframe with all of the observations (over 10,000)
+2. Merge the activity labels with the single dataframe, matching the activity IDs from "activity_labels.txt" to the IDs in the dataframe
+### Select the measurements of interest
+1. Create a dataframe table (requires dplyr library) from the dataframe
+2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. **(Reviewers please note my interpretation of the selection instructions, above.)** 
+
 
 
 APPENDIX 1: ORIGINAL EXPERIMENT AND DOCUMENTATION
