@@ -112,7 +112,7 @@ Detailed operation of run_analysis()
 
         all_data_set <- tbl_df(all_data_set) %>%
 
-2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. **(Reviewers please note my interpretation of the selection instructions, above.)**
+2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. 
 
         select(subject_id, activity, grep("mean_value|std_dev", names(all_data_set)), -activity_id) %>%
 
