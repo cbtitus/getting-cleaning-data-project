@@ -52,6 +52,8 @@ Detailed operation of run_analysis()
 ### Prepare column names and activity labels  
 1. Load the dplyr library
 2. Read the contents of "features.txt" from the root of the working directory. This will be used to create the column names in the dataframe
+    colnames<-read.table("features.txt",header=F)
+    colnames<-colnames$V2
 3. Do some text-cleanup of the names from features.txt, for readability when outputting the tidy data set
 4. Read the contents of "activity_labels.txt" from the root of the working directory. The ID and label we find here will eventually be merged into our data set  
 
