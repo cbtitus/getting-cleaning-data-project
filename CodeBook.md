@@ -5,7 +5,7 @@ CODE BOOK
 =============================
 The raw data for this exercise was obtained by downloading the zip file at this location: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Within the zip file, the README.txt, feature_info.txt, and features.txt documents give important details about the raw data. These are included below, as APPENDIX: Original experiment and documentation
+Within the zip file, the README.txt, feature_info.txt, and features.txt documents give important details about the raw data. The contents of these files are included below, as *APPENDIX: Original experiment and documentation*
 
 2. Overview of variables in the tidy data set
 =============================================
