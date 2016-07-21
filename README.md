@@ -1,7 +1,7 @@
 getting-cleaning-data-project
 =============================
 
-This repository contains the code and codebook for the "Getting and Cleaning Data" week 4 project.
+This repository contains the code and codebook for the "Getting and Cleaning Data" Week 4 Project.
 
 Assignment
 ----------
@@ -25,10 +25,10 @@ You should create one R script called run_analysis.R that does the following.
 
 This repository
 ---------------
-Within this repository are the following:  
-run_analysis.R -- the R-script written to process the data for the assignment  
-CodeBook.md -- details about the data, the code, and the steps taken to process the raw data into the tidy data  
-README.md -- this file  
+Within this repository are the following files:  
+* run_analysis.R -- the R-script written to process the data for the assignment  
+* CodeBook.md -- details about the data, the code, and the steps taken to process the raw data into the tidy data.  
+* README.md -- this file  
 
 run_analysis.R
 --------------
@@ -44,8 +44,3 @@ The tidy data set can be constructed from the raw data using the R-script run_an
 When the function run_analysis() is called, the raw data will be read from the working directory and subfolders and operated upon (described in detail in CodeBook.md). A tidy data set will be output back to the working directory as a file named "tidydata.txt", using the write.table() function. There are no parameters required for the script to run properly. Upon completion of the script, tidydata.txt should be able to be read back into R using 
 
     read.table("tidydata.txt", header=TRUE)
-
-
-
-
-
