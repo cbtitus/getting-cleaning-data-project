@@ -24,13 +24,13 @@ The variables in the tidy data set represent average values of a subset of the r
 **REVIEWERS, PLEASE NOTE: in my interpretation of the instructions, I decided that only variables including mean() and std() would be selected.**  
 For example, the following were selected:
 
-tBodyAcc-mean()-X  
-tBodyAcc-std()-Y  
+    tBodyAcc-mean()-X  
+    tBodyAcc-std()-Y  
 
 but the following were **NOT** selected:
 
-fBodyAccMag-meanFreq()   
-angle(X,gravityMean)
+    fBodyAccMag-meanFreq()   
+    angle(X,gravityMean)
 
 even though the word "Mean" appears in the variable description.
 
