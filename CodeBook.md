@@ -66,7 +66,9 @@ Detailed operation of run_analysis()
 3. Do some text-cleanup of the names from features.txt, for readability when outputting the tidy data set. Examples:
 
         colnames <- sub("mean\\(\\)", "mean_value", colnames)
+        colnames <- sub("std\\(\\)", "std_dev", colnames)
         colnames <- gsub("Gyro", "Gyroscope", colnames)
+        colnames <- gsub("Acc", "Accelerometer", colnames)
         
 4. Read the contents of "activity_labels.txt" from the root of the working directory. The ID and label we find here will eventually be merged into our data set  
 
