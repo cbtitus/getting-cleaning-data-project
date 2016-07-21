@@ -55,6 +55,9 @@ Detailed operation of run_analysis()
 ------------------------------------
 ### Prepare column names and activity labels  
 1. Load the dplyr library
+
+        library(dplyr)
+
 2. Read the contents of "features.txt" from the root of the working directory. This will be used to create the column names in the dataframe  
 
         colnames <- read.table("features.txt", header=F)  
