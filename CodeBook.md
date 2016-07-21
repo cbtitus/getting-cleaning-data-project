@@ -101,7 +101,7 @@ Detailed operation of run_analysis()
 ### Select the measurements of interest  
 1. Create a dataframe table (requires dplyr library) from the dataframe
 
-        all_data_set<-tbl_df(all_data_set) %>%
+        all_data_set <- tbl_df(all_data_set) %>%
 
 2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. **(Reviewers please note my interpretation of the selection instructions, above.)**
 
@@ -115,11 +115,17 @@ Detailed operation of run_analysis()
 
 ### Create the tidy data set requested by the assignment
 1. Use the group_by() function to group the dataframe table by subject_id and activity  
-    * group_by(subject_id, activity)
-2. Use chaining and the summarize_each() function to take the mean of every variable, summarizing by the groups  
-    * summarize_each(funs(mean))
+
+        group_by(subject_id, activity) %>%
+
+2. Use the summarize_each() function to take the mean of every variable, summarizing by the groups  
+
+        summarize_each(funs(mean)
+
 3. We now have a dataframe table that gives the average of each measurement of interest, for each subject_id and activity
 4. Use write.table() to write the tidy data set to the working directory
+
+        write.table(all_data_set, "tidydata.txt", row.names=FALSE)
 
 4. Variables in the final tidy data set
 ===========================================
