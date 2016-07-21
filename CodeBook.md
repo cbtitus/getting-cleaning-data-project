@@ -82,8 +82,8 @@ Detailed operation of run_analysis()
 
         all_train_set <- cbind(train_subject_id, train_activities, train_set)
 
-### Load the test data  
-_using the same process as above_  
+
+### Load the test data (following same steps as above)  
 1. Read the contents of "test/X_test.txt", and name the columns in the dataframe using the information from "features.txt," above
 2. Read the contents of "test/y_test.txt" which are the activity IDs for each observation
 3. Read the contents of "test/subject_test.txt" which are the subject IDs for each observation
@@ -91,11 +91,22 @@ _using the same process as above_
 
 ### Create the single dataframe  
 1. Row bind the 2 dataframes together using rbind(). Now we have one dataframe with all of the observations (over 10,000)
-2. Merge the activity labels with the single dataframe, matching the activity IDs from "activity_labels.txt" to the IDs in the dataframe  
+
+        all_data_set <- rbind(all_train_set, all_test_set)
+
+2. Merge the activity labels with the single dataframe, matching the activity IDs from "activity_labels.txt" to the IDs in the dataframe
+
+        all_data_set <- merge(all_data_set, activity_id_labels)
 
 ### Select the measurements of interest  
 1. Create a dataframe table (requires dplyr library) from the dataframe
+
+        all_data_set<-tbl_df(all_data_set) %>%
+
 2. Use select() along with grep() to choose the columns containing the measurements of mean() and std(). Drop the activity ID column, as we now have the activity name in the dataframe. **(Reviewers please note my interpretation of the selection instructions, above.)**
+
+        select(subject_id, activity, grep("mean_value|std_dev", names(all_data_set)), -activity_id) %>%
+
 3. We now have a dataframe that:  
     * combines the test and training data
     * has appropriately labeled columns
