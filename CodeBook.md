@@ -95,12 +95,12 @@ The tidy data set includes 2 ID variables and 66 measurement variables. The ID v
 subject_id: an integer ID of the human participants in the experiment   
 
 activity: a descriptive activity label, with possible values:   
-1. WALKING  
-2. WALKING_UPSTAIRS  
-3. WALKING_DOWNSTAIRS  
-4. SITTING  
-5. STANDING  
-6. LAYING 
+    1. WALKING  
+    2. WALKING_UPSTAIRS  
+    3. WALKING_DOWNSTAIRS  
+    4. SITTING  
+    5. STANDING  
+    6. LAYING 
     
 The measurement variables are described in further detail in the APPENDIX, below.
 
