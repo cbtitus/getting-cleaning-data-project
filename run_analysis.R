@@ -22,6 +22,7 @@ run_analysis <- function(){
         # replace "," with "_"
         colnames<-gsub(",","_",colnames)
         
+        # other cleanup
         colnames<-gsub("Gyro","Gyroscope",colnames)
         colnames<-gsub("Acc","Accelerometer",colnames)
         colnames<-gsub("^t","Time",colnames)
@@ -80,10 +81,12 @@ run_analysis <- function(){
                 # group by the subject_id and the activity, so that we can summarize
                 group_by(subject_id,activity) %>%
                         # use the summarize_each function to take the mean of every variable, and summarize by the groups
-                       summarize_each(funs(mean))
+                        summarize_each(funs(mean))
 
-                        # now we should have data frame that gives the mean of each measurement
+                        # now we should have a data frame that gives the mean of each measurement
                         # that was selected, for each subject_id, and for each activity
-                write.table(all_data_set, "tidydata.txt", row.names=FALSE)
+        
+        # write the tidy data to the disk
+        write.table(all_data_set, "tidydata.txt", row.names=FALSE)
 
 }
