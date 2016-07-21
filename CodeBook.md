@@ -47,7 +47,9 @@ Assumptions and requirements for run_analysis():
 
 Overview
 --------
-When the function run_analysis() is called, the raw data will be read from the working directory and subfolders and operated upon (described in detail below). A tidy data set will be output back to the working directory as a file named "tidydata.txt", using the write.table() function. There are no parameters required for the script to run properly. Upon completion of the script, tidydata.txt should be able to be read back into R using read.table("tidydata.txt" header=TRUE)
+When the function run_analysis() is called, the raw data will be read from the working directory and subfolders and operated upon (described in detail below). A tidy data set will be output back to the working directory as a file named "tidydata.txt", using the write.table() function. There are no parameters required for the script to run properly. Upon completion of the script, tidydata.txt should be able to be read back into R using 
+
+    read.table("tidydata.txt", header=TRUE)
 
 Detailed operation of run_analysis()
 ------------------------------------
