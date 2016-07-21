@@ -1,6 +1,8 @@
 CODE BOOK
 =========
 
+This code book describes the R-script run_analysis.R, and the data it was used to analyze for the "Getting and Cleaning Data" week 4 project.  
+
 1. Raw data for the exercise
 =============================
 The raw data for this exercise was obtained by downloading the zip file at this location: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
@@ -120,7 +122,7 @@ Detailed operation of run_analysis()
 
 2. Use the summarize_each() function to take the mean of every variable, summarizing by the groups  
 
-        summarize_each(funs(mean)
+        summarize_each(funs(mean))
 
 3. We now have a dataframe table that gives the average of each measurement of interest, for each subject_id and activity
 4. Use write.table() to write the tidy data set to the working directory
