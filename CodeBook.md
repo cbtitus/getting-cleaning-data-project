@@ -1,7 +1,7 @@
 CODE BOOK
 =========
 
-1. Raw Data for the exercise
+1. Raw data for the exercise
 =============================
 The raw data for this exercise was obtained by downloading the zip file at this location: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
@@ -90,6 +90,20 @@ Detailed operation of run_analysis()
 
 4. Variables in the final tidy data set
 ===========================================
+The tidy data set includes 2 ID variables and 66 measurement variables. The ID variables are:  
+subject_id: an integer ID of the human participants in the experiment    
+activity: a descriptive activity label, with possible values:  
+    * WALKING
+    * WALKING_UPSTAIRS
+    * WALKING_DOWNSTAIRS
+    * SITTING
+    * STANDING
+    * LAYING
+    
+The measurement variables are described in further detail in the APPENDIX, below.
+
+Full list of varible names:
+
 1. subject_id
 2. activity
 3. TimeBodyAccelerometer.mean_value.X
