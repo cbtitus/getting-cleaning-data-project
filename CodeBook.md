@@ -53,19 +53,37 @@ Detailed operation of run_analysis()
 1. Load the dplyr library
 2. Read the contents of "features.txt" from the root of the working directory. This will be used to create the column names in the dataframe  
 
-        colnames<-read.table("features.txt",header=F)  
-        colnames<-colnames$V2
+        colnames <- read.table("features.txt", header=F)  
+        colnames <- colnames$V2
         
-3. Do some text-cleanup of the names from features.txt, for readability when outputting the tidy data set
+3. Do some text-cleanup of the names from features.txt, for readability when outputting the tidy data set. Examples:
+
+        colnames <- sub("mean\\(\\)", "mean_value", colnames)
+        colnames <- gsub("Gyro", "Gyroscope", colnames)
+        
 4. Read the contents of "activity_labels.txt" from the root of the working directory. The ID and label we find here will eventually be merged into our data set  
+
+        activity_id_labels <- read.table("activity_labels.txt", col.names=c("activity_id", "activity"), header=F)
 
 ### Load the training data  
 1. Read the contents of "train/X_train.txt", and name the columns in the dataframe using the information from "features.txt," above
+
+        train_set <- read.table("train/X_train.txt", col.names=colnames, header=F) 
+        
 2. Read the contents of "train/y_train.txt" which are the activity IDs for each observation
+
+        train_activities <- read.table("train/y_train.txt", col.names="activity_id", header=F)
+        
 3. Read the contents of "train/subject_train.txt" which are the subject IDs for each observation
+
+        train_subject_id <- read.table("train/subject_train.txt", col.names="subject_id", header=F)
+
 4. Column-bind these three pieces together using cbind()  
 
+        all_train_set <- cbind(train_subject_id, train_activities, train_set)
+
 ### Load the test data  
+_using the same process as above_  
 1. Read the contents of "test/X_test.txt", and name the columns in the dataframe using the information from "features.txt," above
 2. Read the contents of "test/y_test.txt" which are the activity IDs for each observation
 3. Read the contents of "test/subject_test.txt" which are the subject IDs for each observation
