@@ -88,8 +88,8 @@ Detailed operation of run_analysis()
 3. We now have a dataframe table that gives the average of each measurement of interest, for each subject_id and activity
 4. Use write.table() to write the tidy data set to the working directory
 
-Variable names in the final tidy data set
------------------------------------
+4. Variables in the final tidy data set
+===========================================
 1. subject_id
 2. activity
 3. TimeBodyAccelerometer.mean_value.X
